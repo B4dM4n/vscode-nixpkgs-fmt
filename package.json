@@ -1,0 +1,65 @@
+{
+  "name": "nixpkgs-fmt",
+  "displayName": "nixpkgs-fmt",
+  "description": "Format nix files with nixpkgs-fmt",
+  "version": "0.0.1",
+  "license": "MIT",
+  "publisher": "B4dM4n",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/B4dM4n/vscode-nixpkgs-fmt"
+  },
+  "engines": {
+    "vscode": "^1.45.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:nix"
+  ],
+  "main": "./dist/extension",
+  "contributes": {
+    "languages": [
+      {
+        "id": "nix",
+        "extensions": [
+          ".nix"
+        ]
+      }
+    ],
+    "configuration": {
+      "title": "nixpkgs-fmt",
+      "type": "object",
+      "properties": {
+        "nixpkgs-fmt.path": {
+          "type": "string",
+          "default": "nixpkgs-fmt",
+          "description": "Path to the nixpkgs-fmt executable."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "webpack --mode none",
+    "lint": "eslint src --ext ts",
+    "vscode:prepublish": "webpack --mode production",
+    "watch": "webpack --mode none --watch --info-verbosity verbose"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.11",
+    "@types/vscode": "^1.45.0",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "eslint": "^7.2.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.1.2",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.8.3",
+    "vscode-test": "^1.3.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
